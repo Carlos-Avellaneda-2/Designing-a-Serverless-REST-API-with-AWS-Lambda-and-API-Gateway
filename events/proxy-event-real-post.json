@@ -1,0 +1,91 @@
+{
+  "version": null,
+  "resource": "/orders",
+  "path": "/orders",
+  "httpMethod": "POST",
+  "headers": {
+    "accept": "*/*",
+    "content-type": "application/json",
+    "Host": "f034suuipj.execute-api.us-east-1.amazonaws.com",
+    "User-Agent": "curl/8.21.0",
+    "X-Amzn-Trace-Id": "Root=1-6ade4dbe-36705aae124825370a18e0dc",
+    "x-demo": "taller",
+    "X-Forwarded-For": "34.235.149.70",
+    "X-Forwarded-Port": "443",
+    "X-Forwarded-Proto": "https"
+  },
+  "multiValueHeaders": {
+    "accept": [
+      "*/*"
+    ],
+    "content-type": [
+      "application/json"
+    ],
+    "Host": [
+      "f034suuipj.execute-api.us-east-1.amazonaws.com"
+    ],
+    "User-Agent": [
+      "curl/8.21.0"
+    ],
+    "X-Amzn-Trace-Id": [
+      "Root=1-6ade4dbe-36705aae124825370a18e0dc"
+    ],
+    "x-demo": [
+      "taller"
+    ],
+    "X-Forwarded-For": [
+      "34.235.149.70"
+    ],
+    "X-Forwarded-Port": [
+      "443"
+    ],
+    "X-Forwarded-Proto": [
+      "https"
+    ]
+  },
+  "queryStringParameters": {
+    "source": "readme"
+  },
+  "multiValueQueryStringParameters": {
+    "source": [
+      "readme"
+    ]
+  },
+  "pathParameters": null,
+  "stageVariables": null,
+  "requestContext": {
+    "accountId": "628303571152",
+    "stage": "prod",
+    "resourceId": "c6asko",
+    "requestId": "6f7d94aa-c569-44d0-be3c-5fb10d0672e4",
+    "operationName": null,
+    "identity": {
+      "cognitoIdentityPoolId": null,
+      "accountId": null,
+      "cognitoIdentityId": null,
+      "caller": null,
+      "apiKey": null,
+      "principalOrgId": null,
+      "sourceIp": "34.235.149.70",
+      "cognitoAuthenticationType": null,
+      "cognitoAuthenticationProvider": null,
+      "userArn": null,
+      "userAgent": "curl/8.21.0",
+      "user": null,
+      "accessKey": null
+    },
+    "resourcePath": "/orders",
+    "httpMethod": "POST",
+    "apiId": "f034suuipj",
+    "path": "/prod/orders",
+    "authorizer": null,
+    "extendedRequestId": "F0EV2H5KoAMECZg=",
+    "requestTime": "25/Oct/2026:18:43:10 +0000",
+    "requestTimeEpoch": 1792953790541,
+    "domainName": "f034suuipj.execute-api.us-east-1.amazonaws.com",
+    "domainPrefix": "f034suuipj",
+    "protocol": "HTTP/1.1"
+  },
+  "body": "{\"customerId\":\"CUST-7\",\"product\":\"Mouse\",\"quantity\":2}",
+  "isBase64Encoded": false
+}

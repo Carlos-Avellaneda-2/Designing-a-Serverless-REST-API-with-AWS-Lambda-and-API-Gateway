@@ -1,0 +1,38 @@
+{
+  "resource": "/orders/{id}",
+  "path": "/orders/ORD-100",
+  "httpMethod": "GET",
+  "headers": {
+    "Accept": "application/json",
+    "Host": "abc123xyz.execute-api.us-east-1.amazonaws.com",
+    "User-Agent": "curl/8.5.0",
+    "X-Forwarded-Proto": "https"
+  },
+  "multiValueHeaders": {
+    "Accept": ["application/json"],
+    "Host": ["abc123xyz.execute-api.us-east-1.amazonaws.com"],
+    "User-Agent": ["curl/8.5.0"],
+    "X-Forwarded-Proto": ["https"]
+  },
+  "queryStringParameters": null,
+  "multiValueQueryStringParameters": null,
+  "pathParameters": {
+    "id": "ORD-100"
+  },
+  "stageVariables": null,
+  "requestContext": {
+    "resourcePath": "/orders/{id}",
+    "httpMethod": "GET",
+    "path": "/prod/orders/ORD-100",
+    "stage": "prod",
+    "requestId": "c6af9ac6-7b61-11e6-9a41-93e8deadbeef",
+    "apiId": "abc123xyz",
+    "protocol": "HTTP/1.1",
+    "identity": {
+      "sourceIp": "203.0.113.10",
+      "userAgent": "curl/8.5.0"
+    }
+  },
+  "body": null,
+  "isBase64Encoded": false
+}

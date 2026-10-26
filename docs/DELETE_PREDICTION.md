@@ -56,3 +56,27 @@ En `OrderService` (decide si la orden existe y si se puede borrar) apoyado en el
   `ORDER_NOT_FOUND`; `GET` después del `DELETE` → 404; `DELETE /orders` (colección) → 405.
 - `MappingHandlersTest`: el handler de borrado produce el `errorMessage` que coincide con el regex de 404.
 - `ArchitectureTest` no cambia y debe seguir pasando.
+
+---
+
+## Comparación con lo implementado
+
+| Pregunta | Predicción | Lo implementado | ¿Coincide? |
+|---|---|---|---|
+| Clases que cambian | `OrderRepository`, `InMemoryOrderRepository`, `OrderService`, `OrdersApiHandler`, nuevo `DeleteOrderHandler` | Exactamente esas, más `FailingRepository` (doble de test que implementa la interfaz) | Sí, salvo el doble de test, que no se previó |
+| ¿Nueva Lambda? | A sí, B no | A: `orders-delete`; B: misma `orders-api` | Sí |
+| ¿Cambia API Gateway? | Sí en ambas | A: ~9 llamadas (método, plantilla, 204/400/404/500). B: 1 método proxy | Sí |
+| Lógica de borrado | Servicio + repositorio | `OrderService.deleteOrder` + `deleteById` | Sí |
+| Decisión 204/404 | Servicio decide el hecho; adaptador (B) o API Gateway (A) el código | Igual | Sí |
+| Tests | Servicio, adaptador, handler A | +5 servicio, +4 adaptador, +2 handler A | Sí |
+
+**Lo que la predicción no anticipó**
+
+- La consecuencia práctica de la memoria separada en A: tras `DELETE /orders/ORD-102` (204),
+  `GET /orders/ORD-102` **siguió devolviendo 200**, porque `orders-get` nunca se enteró del borrado.
+  La predicción mencionaba la memoria propia, pero no que dejaría al API inconsistente.
+- En A, el 204 necesita una plantilla de respuesta que no produzca nada; sin ella API Gateway
+  devolvería el `null` que retorna la Lambda.
+- Justo después de desplegar, API Gateway tardó unos segundos en reconocer el método nuevo y
+  respondió `403 Missing Authentication Token` a las primeras peticiones.
+
